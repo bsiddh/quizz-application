@@ -3,6 +3,8 @@ package com.telusko.Quizzapp.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "Quizz_question")
@@ -19,4 +21,6 @@ public class Question {
     private String rightAnswer;
     private String difficultyLevel;
     private String category;
+    @ManyToMany(mappedBy = "questions")
+    private List<Quiz> quizzes;
 }
